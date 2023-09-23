@@ -20,6 +20,7 @@
   "scripts": {
     "cz": "czg",
     "dev": "pnpm -C play dev",
+    "ci-check": "run-p lint typecheck",
     "format": "prettier --write --cache .",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
     "lint:fix": "pnpm run lint --fix",
