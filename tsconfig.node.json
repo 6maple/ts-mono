@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["ESNext"],
+    "types": ["node"],
+    "skipLibCheck": true
+  },
+  "include": [
+    "packages/build/**/*",
+    "packages/eslint-plugin/**/*",
+    "scripts/**/*",
+    "typings/node-env.d.ts"
+  ],
+  "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]
+}

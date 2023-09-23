@@ -1,0 +1,65 @@
+{
+  "name": "@zyi/ts-mono",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@7.3.0",
+  "workspaces": [
+    "packages/*",
+    "play",
+    "docs"
+  ],
+  "description": "zyi's typescript monorepo",
+  "keywords": [
+    "typescript",
+    "monorepo",
+    "zyi"
+  ],
+  "license": "MIT",
+  "author": "zyi",
+  "main": "index.js",
+  "scripts": {
+    "cz": "czg",
+    "dev": "pnpm -C play dev",
+    "format": "prettier --write --cache .",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
+    "lint:fix": "pnpm run lint --fix",
+    "lint:commit": "commitlint --from $(git merge-base origin/dev HEAD) --to HEAD > ./commit-lint.txt",
+    "typecheck": "run-p typecheck:node",
+    "typecheck:node": "tsc -p tsconfig.node.json --noEmit",
+    "stub": "pnpm run -r --parallel stub",
+    "prepare": "husky install",
+    "postinstall": "pnpm stub"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@esbuild-kit/cjs-loader": "^2.2.1",
+    "@types/node": "^20.6.3",
+    "@zyi/eslint-plugin": "workspace:*",
+    "consola": "^2.15.3",
+    "cz-git": "^1.7.1",
+    "czg": "^1.7.1",
+    "eslint": "^8.50.0",
+    "eslint-define-config": "^1.23.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.1",
+    "tsx": "^3.12.10",
+    "type-fest": "^4.3.1",
+    "typescript": "^5.2.2",
+    "unbuild": "^0.7.4"
+  },
+  "engines": {
+    "node": ">= 16"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"
+  }
+}

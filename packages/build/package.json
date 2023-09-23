@@ -1,0 +1,19 @@
+{
+  "name": "@zyi/build",
+  "version": "0.0.1",
+  "description": "Build Toolchain for zyi typescript monorepo",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "pnpm run stub",
+    "stub": "unbuild --stub"
+  },
+  "dependencies": {
+    "esbuild": "^0.14.47"
+  },
+  "devDependencies": {
+    "@esbuild-kit/cjs-loader": "^2.2.1",
+    "unbuild": "^0.7.4"
+  }
+}
