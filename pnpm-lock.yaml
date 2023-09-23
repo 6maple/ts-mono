@@ -10,7 +10,6 @@ importers:
       '@types/node': ^20.6.3
       '@zyi/eslint-plugin': workspace:*
       consola: ^2.15.3
-      cz-git: ^1.7.1
       czg: ^1.7.1
       eslint: ^8.50.0
       eslint-define-config: ^1.23.0
@@ -30,7 +29,6 @@ importers:
       '@types/node': registry.npmmirror.com/@types/node/20.6.3
       '@zyi/eslint-plugin': link:packages/eslint-plugin
       consola: registry.npmmirror.com/consola/2.15.3
-      cz-git: 1.7.1
       czg: 1.7.1
       eslint: registry.npmmirror.com/eslint/8.50.0
       eslint-define-config: registry.npmmirror.com/eslint-define-config/1.23.0
@@ -1200,11 +1198,6 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
-    dev: true
-
-  /cz-git/1.7.1:
-    resolution: {integrity: sha512-NMe4REukCS7op1YA1jixRXOgII8Um2/Ii8TeyFEOISgp2ZzeobzkMOP8dXSrTQ3bvmm7YpPOdr2301yJkOJcbA==}
-    engines: {node: '>=v12.20.0'}
     dev: true
 
   /czg/1.7.1:

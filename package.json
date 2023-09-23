@@ -38,7 +38,6 @@
     "@types/node": "^20.6.3",
     "@zyi/eslint-plugin": "workspace:*",
     "consola": "^2.15.3",
-    "cz-git": "^1.7.1",
     "czg": "^1.7.1",
     "eslint": "^8.50.0",
     "eslint-define-config": "^1.23.0",
@@ -54,11 +53,6 @@
   },
   "engines": {
     "node": ">= 16"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-git"
-    }
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"
