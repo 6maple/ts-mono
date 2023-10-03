@@ -1,0 +1,6 @@
+dist/
+src/
+tsconfig.json
+vite.config.ts
+
+node_modules/

@@ -1,0 +1,15 @@
+{
+  "name": "@zyi/toolkit",
+  "version": "0.0.1",
+  "description": "Toolkit for zyi typescript monorepo",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "pnpm run stub",
+    "stub": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

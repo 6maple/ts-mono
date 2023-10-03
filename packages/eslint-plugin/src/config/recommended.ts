@@ -1,4 +1,5 @@
 import { defineConfig } from 'eslint-define-config';
+
 export const recommended = defineConfig({
   env: {
     es6: true,
@@ -18,7 +19,19 @@ export const recommended = defineConfig({
   ],
   settings: {
     'import/resolver': {
-      node: { extensions: ['.js', '.mjs', '.ts', '.d.ts', '.tsx'] },
+      node: {
+        extensions: [
+          '.ts',
+          '.tsx',
+          '.d.ts',
+          '.js',
+          '.jsx',
+          '.mjs',
+          '.cjs',
+          '.json',
+          '.vue',
+        ],
+      },
     },
   },
   overrides: [

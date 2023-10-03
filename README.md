@@ -2,7 +2,10 @@
 
 ## Announcement
 
-This project is inspired by [element-plus](https://github.com/element-plus/element-plus)
+This project is inspired by:
+
+- [element-plus](https://github.com/element-plus/element-plus)
+- [prettier-vscode](https://github.com/prettier/prettier-vscode)
 
 ## License
 

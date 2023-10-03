@@ -1,0 +1,85 @@
+{
+  "name": "@zyi/vscode-plugin-godot",
+  "version": "0.0.1",
+  "private": true,
+  "displayName": "Zyi Godot Toolkit",
+  "publisher": "zyi",
+  "description": "Vscode plugin for godot",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "scripts": {
+    "dev-client": "vite",
+    "stub": "unbuild --stub",
+    "build": "cross-env IS_BUILD=true unbuild"
+  },
+  "devDependencies": {
+    "@vueuse/core": "^10.4.1",
+    "@zyi/toolkit": "workspace:*",
+    "execa": "^8.0.1",
+    "vscode-nls": "^5.2.0",
+    "vue": "^3.3.4",
+    "@types/vscode": "^1.82.0",
+    "@vitejs/plugin-vue": "^4.3.4",
+    "@vitejs/plugin-vue-jsx": "^3.0.2",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.14.47",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vscode-nls-dev": "^4.0.4",
+    "yaml-eslint-parser": "^1.2.2"
+  },
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "icon": "icon.png",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "categories": [
+    "Formatters"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "%ext.config.title%",
+      "properties": {
+        "zyi-godot.formatters": {
+          "type": "array",
+          "default": [
+            {
+              "selectors": [
+                "gdscript"
+              ],
+              "command": "gdformat"
+            }
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "selectors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "markdownDescription": "%ext.config.markdownDescription.formatterSelectors%"
+              },
+              "command": {
+                "type": "string",
+                "markdownDescription": "%ext.config.markdownDescription.formatterCommand%"
+              }
+            }
+          },
+          "markdownDescription": "%ext.config.markdownDescription.formatters%",
+          "scope": "window"
+        }
+      }
+    }
+  },
+  "commands": [
+    {
+      "command": "zyi-godot.forceFormatDocument",
+      "title": "%ext.command.forceFormatDocument.title%",
+      "when": "editorFocus"
+    }
+  ]
+}

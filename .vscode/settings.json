@@ -7,7 +7,6 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "html",
     "vue",
     "markdown",
     "json",
@@ -18,10 +17,10 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "html",
     "vue",
     "markdown",
     "json",
     "jsonc"
-  ]
+  ],
+  "cSpell.words": ["execa", "gdformat", "gdscript", "vueuse"]
 }
