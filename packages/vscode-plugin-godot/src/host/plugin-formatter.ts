@@ -11,13 +11,11 @@ const disposableList: vscode.Disposable[] = [];
 const formatterList: vscode.Disposable[] = [];
 
 export const setupFormatter = (context: vscode.ExtensionContext) => {
-  // TODO configuration change is not working
   const instance = vscode.workspace.onDidChangeConfiguration((event) => {
     if (event.affectsConfiguration(getConfigKey('formatters'))) {
       updateFormatters();
     }
   });
-  disposableList.push(instance);
   context.subscriptions.push(instance);
   updateFormatters();
 };
@@ -56,7 +54,7 @@ const updateFormatters = () => {
 
 const createFormatHandler = (command: string): FormatHandler => {
   return async (value, file) => {
-    const normalizedCommand = formatStr(command, { file });
+    const normalizedCommand = formatStr(command, { file, content: value });
     logger.logMsgList([
       `raw command: ${command}`,
       `normalized command: ${normalizedCommand}`,
