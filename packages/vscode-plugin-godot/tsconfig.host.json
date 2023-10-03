@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "types": ["node", "./host-env", "../../typings/node-env"]
+  },
+  "include": ["src/host/**/*", "package.json"]
+}
