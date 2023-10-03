@@ -12,6 +12,7 @@
       "args": [
         "--extensionDevelopmentPath=${workspaceFolder}/packages/vscode-plugin-godot"
       ],
+      "sourceMaps": true,
       "outFiles": [
         "${workspaceFolder}/packages/vscode-plugin-godot/dist/**/*.cjs",
         "${workspaceFolder}/packages/vscode-plugin-godot/dist/**/*.js"
@@ -26,6 +27,7 @@
         "--disable-extensions",
         "--extensionDevelopmentPath=${workspaceFolder}/packages/vscode-plugin-godot"
       ],
+      "sourceMaps": true,
       "outFiles": [
         "${workspaceFolder}/packages/vscode-plugin-godot/dist/**/*.cjs",
         "${workspaceFolder}/packages/vscode-plugin-godot/dist/**/*.js"
