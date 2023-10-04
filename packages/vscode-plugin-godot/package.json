@@ -10,7 +10,10 @@
   "scripts": {
     "dev-client": "vite",
     "stub": "unbuild --stub",
-    "build": "cross-env IS_BUILD=true unbuild",
+    "build-only": "cross-env IS_BUILD=true unbuild",
+    "build-toolkit": "cd ../toolkit && pnpm build",
+    "stub-toolkit": "cd ../toolkit && pnpm stub",
+    "build": "run-s build-toolkit build-only stub-toolkit",
     "vsce-pack-only": "vsce package --no-git-tag-version --no-dependencies --skip-license --allow-star-activation --allow-missing-repository",
     "vsce-pack": "run-s build vsce-pack-only stub",
     "rts": "node --require esbuild-register"
@@ -35,7 +38,7 @@
     "vscode": "^1.0.0"
   },
   "activationEvents": [
-    "onStartupFinished"
+    "*"
   ],
   "categories": [
     "Formatters"
@@ -54,7 +57,7 @@
               ],
               "stdoutAsResult": true,
               "commands": [
-                "D:/Programme/anaconda3/python.exe",
+                "python",
                 "-c",
                 "import sys;import io; from gdtoolkit.formatter import format_code;sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8');formatted_code = format_code('''{content}''', 100);print(formatted_code)"
               ]
