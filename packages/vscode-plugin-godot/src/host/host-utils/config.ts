@@ -5,7 +5,11 @@ export interface VscodePluginConfig {
   /**
    * 格式化命令
    */
-  formatters: { selectors: string[]; command: string }[];
+  formatters: {
+    selectors?: string[];
+    stdoutAsResult?: boolean;
+    commands?: string[];
+  }[];
 }
 export const getVscodePluginConfig = (uri?: vscode.Uri): VscodePluginConfig => {
   const config = vscode.workspace.getConfiguration(

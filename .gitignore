@@ -11,6 +11,7 @@ node_modules
 # Bundle
 dist
 dist-*
+*.vsix
 coverage
 
 # local env files
