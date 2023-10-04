@@ -1,10 +1,11 @@
-import { execaCommand } from 'execa';
+import { execa } from 'execa';
 import { formatStr } from '@zyi/toolkit';
 import * as vscode from './vscode';
 
 import { getConfigKey, getVscodePluginConfig } from './host-utils/config';
 import { registerCMDFormatter } from './host-utils/formatter';
 import { logger } from './logger';
+import type { VscodePluginConfig } from './host-utils/config';
 import type { FormatHandler } from './host-utils/formatter';
 
 const disposableList: vscode.Disposable[] = [];
@@ -42,32 +43,47 @@ const updateFormatters = () => {
     return;
   }
   for (const item of formatters) {
-    const { selectors, command } = item;
-    const instance = registerCMDFormatter(
-      selectors,
-      createFormatHandler(command),
-      logger,
-    );
-    formatterList.push(instance);
+    const { selectors, commands } = item;
+    if (!checkIsValidArray(selectors) || !checkIsValidArray(commands)) {
+      continue;
+    }
+    for (const selectorItem of selectors!) {
+      const instance = registerCMDFormatter(
+        selectorItem,
+        createFormatHandler(item),
+        logger,
+      );
+      formatterList.push(instance);
+    }
   }
 };
 
-const createFormatHandler = (command: string): FormatHandler => {
+const checkIsValidArray = (value: unknown) => {
+  return Array.isArray(value) && value.length > 0;
+};
+
+const createFormatHandler = (
+  config: VscodePluginConfig['formatters'][0],
+): FormatHandler => {
+  const { commands, stdoutAsResult } = config;
   return async (value, file) => {
-    const normalizedCommand = formatStr(command, { file, content: value });
+    const ctx = { file, content: value };
+    const normalizedCommands = commands!.map((item) => formatStr(item, ctx));
+    const [cmd, ...cmdArgs] = normalizedCommands;
     logger.logMsgList([
-      `raw command: ${command}`,
-      `normalized command: ${normalizedCommand}`,
+      `raw command: ${commands}`,
+      `normalized command: ${normalizedCommands}`,
     ]);
     try {
-      const res = await execaCommand(normalizedCommand);
-      return res.stdout;
+      const res = await execa(cmd, cmdArgs);
+      if (stdoutAsResult) {
+        return res.stdout;
+      }
     } catch (error) {
-      logger.logMsgList([normalizedCommand, error], {
+      logger.logMsgList([normalizedCommands, error], {
         title: 'execute command error',
         level: 'ERROR',
       });
-      return value;
     }
   };
 };

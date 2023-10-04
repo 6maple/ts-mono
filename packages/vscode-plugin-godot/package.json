@@ -1,5 +1,5 @@
 {
-  "name": "@zyi/vscode-plugin-godot",
+  "name": "zyi-godot",
   "version": "0.0.1",
   "private": true,
   "displayName": "Zyi Godot Toolkit",
@@ -10,7 +10,10 @@
   "scripts": {
     "dev-client": "vite",
     "stub": "unbuild --stub",
-    "build": "cross-env IS_BUILD=true unbuild"
+    "build": "cross-env IS_BUILD=true unbuild",
+    "vsce-pack-only": "vsce package --no-git-tag-version --no-dependencies --skip-license --allow-star-activation --allow-missing-repository",
+    "vsce-pack": "run-s build vsce-pack-only stub",
+    "rts": "node --require esbuild-register"
   },
   "devDependencies": {
     "@vueuse/core": "^10.4.1",
@@ -18,7 +21,7 @@
     "execa": "^8.0.1",
     "vscode-nls": "^5.2.0",
     "vue": "^3.3.4",
-    "@types/vscode": "^1.82.0",
+    "@types/vscode": "^1.0.0",
     "@vitejs/plugin-vue": "^4.3.4",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "cross-env": "^7.0.3",
@@ -31,7 +34,6 @@
   "engines": {
     "vscode": "^1.0.0"
   },
-  "icon": "icon.png",
   "activationEvents": [
     "onStartupFinished"
   ],
@@ -41,7 +43,7 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "%ext.config.title%",
+      "title": "%ext.config.title.configuration%",
       "properties": {
         "zyi-godot.formatters": {
           "type": "array",
@@ -50,7 +52,12 @@
               "selectors": [
                 "gdscript"
               ],
-              "command": "gdformat"
+              "stdoutAsResult": true,
+              "commands": [
+                "D:/Programme/anaconda3/python.exe",
+                "-c",
+                "import sys;import io; from gdtoolkit.formatter import format_code;sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8');formatted_code = format_code('''{content}''', 100);print(formatted_code)"
+              ]
             }
           ],
           "items": {
@@ -63,9 +70,17 @@
                 },
                 "markdownDescription": "%ext.config.markdownDescription.formatterSelectors%"
               },
-              "command": {
-                "type": "string",
-                "markdownDescription": "%ext.config.markdownDescription.formatterCommand%"
+              "stdoutAsResult": {
+                "type": "boolean",
+                "default": true,
+                "markdownDescription": "%ext.config.markdownDescription.formatterStdoutAsResult%"
+              },
+              "commands": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "markdownDescription": "%ext.config.markdownDescription.formatterCommands%"
               }
             }
           },
@@ -78,7 +93,7 @@
   "commands": [
     {
       "command": "zyi-godot.forceFormatDocument",
-      "title": "%ext.command.forceFormatDocument.title%",
+      "title": "%ext.command.title.forceFormatDocument%",
       "when": "editorFocus"
     }
   ]

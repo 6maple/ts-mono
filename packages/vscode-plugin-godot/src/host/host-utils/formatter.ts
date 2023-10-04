@@ -1,7 +1,10 @@
 import * as vscode from '../vscode';
 import type { VscodeLogger } from './logging';
 
-export type FormatHandler = (value: string, file: string) => Promise<string>;
+export type FormatHandler = (
+  value: string,
+  file: string,
+) => Promise<string | undefined | null>;
 
 export const registerCMDFormatter = (
   selector: vscode.DocumentSelector,
@@ -28,22 +31,24 @@ export const createDocumentCMDFormattingEditProvider = (
 ) => {
   const res: vscode.DocumentFormattingEditProvider = {
     async provideDocumentFormattingEdits(document) {
-      const edits: vscode.TextEdit[] = [];
       const endLine = document.lineCount - 1;
       const endCharacter = document.lineAt(endLine).text.length;
       const range = new vscode.Range(0, 0, endLine, endCharacter);
-      let result = '';
+      let result: string | undefined | null = '';
       try {
+        const res = await document.save();
+        logger.logMsgList(['res', res]);
         result = await format(document.getText(), document.fileName);
       } catch (error) {
         logger.logMsg('format error', { title: 'format', level: 'ERROR' });
         logger.logMsg(error, { title: 'format', level: 'ERROR' });
       }
       if (result) {
-        edits.push(vscode.TextEdit.replace(range, result));
+        const edits: vscode.TextEdit[] = [
+          vscode.TextEdit.replace(range, result),
+        ];
+        return edits;
       }
-
-      return edits;
     },
   };
   return res;

@@ -1,3 +1,8 @@
 {
-  "ext.config.markdownDescription.formatterCommand": "格式化执行的命令"
+  "ext.config.title.configuration": "配置",
+  "ext.config.markdownDescription.formatterSelectors": "格式化的语言类型列表",
+  "ext.config.markdownDescription.formatterStdoutAsResult": "是否使用标注输出作为格式化结果",
+  "ext.config.markdownDescription.formatterCommands": "格式化执行的命令",
+  "ext.config.markdownDescription.formatters": "格式化配置列表",
+  "ext.command.title.forceFormatDocument": "强制执行格式化"
 }
