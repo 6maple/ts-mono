@@ -36,8 +36,6 @@ export const createDocumentCMDFormattingEditProvider = (
       const range = new vscode.Range(0, 0, endLine, endCharacter);
       let result: string | undefined | null = '';
       try {
-        const res = await document.save();
-        logger.logMsgList(['res', res]);
         result = await format(document.getText(), document.fileName);
       } catch (error) {
         logger.logMsg('format error', { title: 'format', level: 'ERROR' });
