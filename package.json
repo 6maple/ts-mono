@@ -2,7 +2,7 @@
   "name": "@zyi/ts-mono",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@7.3.0",
+  "packageManager": "pnpm@8.8.0",
   "workspaces": [
     "packages/*",
     "play",
