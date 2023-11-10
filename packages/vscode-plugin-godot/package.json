@@ -30,7 +30,7 @@
     "cross-env": "^7.0.3",
     "esbuild": "^0.14.47",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9",
+    "vite": "5.0.0-beta.17",
     "vscode-nls-dev": "^4.0.4",
     "yaml-eslint-parser": "^1.2.2"
   },
