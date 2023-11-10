@@ -5,7 +5,10 @@
     "jsx": "preserve",
     "lib": ["ESNext"],
     "types": ["vite/client", "vite-plugin-vue-layouts/client"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src/*", "./typed-router.d.ts"],
   "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]

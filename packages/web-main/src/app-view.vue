@@ -1,7 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ElConfigProvider } from 'element-plus';
+
+const size = 'small';
+const zIndex = 3000;
+</script>
 
 <template>
-  <div>Hello World</div>
+  <ElConfigProvider :size="size" :z-index="zIndex">
+    <RouterView />
+  </ElConfigProvider>
 </template>
 
 <style lang="scss"></style>
