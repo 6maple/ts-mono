@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { URL, fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';
 import generateSitemap from 'vite-ssg-sitemap';
@@ -9,21 +10,22 @@ import VueDevTools from 'vite-plugin-vue-devtools';
 import Unocss from 'unocss/vite';
 import WebfontDownload from 'vite-plugin-webfont-dl';
 import VueRouter from 'unplugin-vue-router/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
+      '@/': fileURLToPath(new URL('src', import.meta.url)),
     },
   },
 
   plugins: [
-    Vue({
-      include: [/\.vue$/, /\.md$/],
-    }),
     // https://github.com/posva/unplugin-vue-router
     VueRouter({
       extensions: ['.vue'],
+    }),
+    Vue({
+      include: [/\.vue$/],
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -32,6 +34,7 @@ export default defineConfig({
     // https://github.com/antfu/unplugin-vue-components
     Components({
       dts: 'src/components.d.ts',
+      resolvers: [ElementPlusResolver()],
     }),
 
     // https://github.com/antfu/unocss
