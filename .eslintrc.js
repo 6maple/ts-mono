@@ -6,7 +6,6 @@ module.exports = defineConfig({
   settings: {
     'import/resolver': {
       alias: {
-        map: [['vscode', '@types/vscode']],
         extensions: [
           '.ts',
           '.tsx',
@@ -20,6 +19,12 @@ module.exports = defineConfig({
         ],
       },
     },
+    'import/core-modules': [
+      'vscode',
+      'uno.css',
+      'virtual:generated-layouts',
+      'vue-router/auto/routes',
+    ],
   },
   overrides: [
     {
