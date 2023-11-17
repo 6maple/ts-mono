@@ -59,7 +59,8 @@
               "commands": [
                 "python",
                 "-c",
-                "import sys;import io; from gdtoolkit.formatter import format_code;sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8');formatted_code = format_code('''{content}''', 100);print(formatted_code)"
+                "import sys;import io; from gdtoolkit.formatter import format_code;sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8');formatted_code = format_code(sys.argv[-1], 100);print(formatted_code)",
+                "{content}"
               ]
             }
           ],
