@@ -11,11 +11,12 @@ import Unocss from 'unocss/vite';
 import WebfontDownload from 'vite-plugin-webfont-dl';
 import VueRouter from 'unplugin-vue-router/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import { createCcComponentResolver } from './vite.config.utils';
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@/': fileURLToPath(new URL('src', import.meta.url)),
+      '@': fileURLToPath(new URL('src', import.meta.url)),
     },
   },
 
@@ -34,7 +35,8 @@ export default defineConfig({
     // https://github.com/antfu/unplugin-vue-components
     Components({
       dts: 'src/components.d.ts',
-      resolvers: [ElementPlusResolver()],
+      dirs: [],
+      resolvers: [ElementPlusResolver(), createCcComponentResolver()],
     }),
 
     // https://github.com/antfu/unocss

@@ -1,15 +1,8 @@
 {
-  "extends": "../../tsconfig.web-base.json",
-  "compilerOptions": {
-    "composite": true,
-    "jsx": "preserve",
-    "lib": ["ESNext"],
-    "types": ["vite/client", "vite-plugin-vue-layouts/client"],
-    "skipLibCheck": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["src/*", "./typed-router.d.ts"],
-  "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.web.json" },
+    { "path": "../../tsconfig.node.json" },
+    { "path": "../../tsconfig.vite-config.json" }
+  ]
 }

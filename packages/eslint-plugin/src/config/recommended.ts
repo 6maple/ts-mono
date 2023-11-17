@@ -201,7 +201,7 @@ export const recommended = defineConfig({
     '@typescript-eslint/ban-ts-comment': ['off', { 'ts-ignore': false }],
 
     // vue
-    'vue/multi-word-component-names': ['error', { ignores: ['index'] }],
+    'vue/multi-word-component-names': 'off',
     'vue/component-name-in-template-casing': ['error', 'PascalCase'],
     'vue/html-self-closing': [
       'error',
