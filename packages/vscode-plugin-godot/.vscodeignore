@@ -1,0 +1,8 @@
+src/
+tsconfig.json
+tsconfig.*.json
+host-env.d.ts
+build.config.ts
+vite.config.ts
+
+node_modules/

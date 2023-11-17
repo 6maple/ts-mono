@@ -1,4 +1,5 @@
 import { defineConfig } from 'eslint-define-config';
+
 export const recommended = defineConfig({
   env: {
     es6: true,
@@ -18,7 +19,19 @@ export const recommended = defineConfig({
   ],
   settings: {
     'import/resolver': {
-      node: { extensions: ['.js', '.mjs', '.ts', '.d.ts', '.tsx'] },
+      node: {
+        extensions: [
+          '.ts',
+          '.tsx',
+          '.d.ts',
+          '.js',
+          '.jsx',
+          '.mjs',
+          '.cjs',
+          '.json',
+          '.vue',
+        ],
+      },
     },
   },
   overrides: [
@@ -188,6 +201,8 @@ export const recommended = defineConfig({
     '@typescript-eslint/ban-ts-comment': ['off', { 'ts-ignore': false }],
 
     // vue
+    'vue/multi-word-component-names': ['error', { ignores: ['index'] }],
+    'vue/component-name-in-template-casing': ['error', 'PascalCase'],
     'vue/html-self-closing': [
       'error',
       {

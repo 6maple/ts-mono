@@ -1,0 +1,8 @@
+{
+  "ext.config.title.configuration": "configuration",
+  "ext.config.markdownDescription.formatterSelectors": "formatter selectors",
+  "ext.config.markdownDescription.formatterStdoutAsResult": "formatter use stdout as result",
+  "ext.config.markdownDescription.formatterCommands": "formatter commands",
+  "ext.config.markdownDescription.formatters": "formatters",
+  "ext.command.title.forceFormatDocument": "force format document"
+}

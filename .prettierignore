@@ -5,6 +5,3 @@ pnpm-lock.yaml
 coverage
 play
 !.*
-
-components.d.ts
-typed-router.d.ts
