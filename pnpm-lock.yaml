@@ -203,6 +203,9 @@ importers:
 
   packages/web-main:
     dependencies:
+      '@element-plus/icons-vue':
+        specifier: ^2.1.0
+        version: 2.1.0(vue@3.3.8)
       '@unocss/reset':
         specifier: ^0.57.3
         version: 0.57.3

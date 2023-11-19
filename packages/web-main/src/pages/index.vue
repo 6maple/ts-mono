@@ -1,14 +1,9 @@
-<script setup lang="ts">
-const name = 'maple';
-const handleClick = () => {
-  //
-};
-</script>
+<script setup lang="ts"></script>
 <template>
-  <div>
-    <CcFoo />
-    <ElText type="primary">{{ name }}</ElText>
-    <ElButton type="primary" @click="handleClick">click</ElButton>
+  <div p-10 flex justify-center>
+    <div border border-gray>
+      <CcIssueCommentCount />
+    </div>
   </div>
 </template>
 <style lang="scss"></style>
