@@ -39,6 +39,8 @@
     "@types/node": "^20.6.3",
     "@vscode/vsce": "^2.21.1",
     "@zyi/eslint-plugin": "workspace:*",
+    "@zyi/toolkit-core": "workspace:*",
+    "@zyi/build": "workspace:*",
     "consola": "^2.15.3",
     "czg": "^1.7.1",
     "esbuild": "^0.14.47",
@@ -53,12 +55,17 @@
     "rimraf": "^5.0.1",
     "tsx": "^3.12.10",
     "type-fest": "^4.3.1",
-    "typescript": "^5.2.2",
+    "typescript": "~5.2.2",
     "unbuild": "^0.7.4",
     "vitest": "1.0.0-beta.4"
   },
   "engines": {
     "node": ">= 16"
+  },
+  "pnpm": {
+    "overrides": {
+      "rollup": "^4.2.0"
+    }
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"

@@ -1,0 +1,41 @@
+{
+  "name": "@zyi/web-ui",
+  "version": "0.0.1",
+  "description": "Web UI for zyi typescript monorepo",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "stub": "unbuild --stub",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "@unocss/reset": "^0.57.3",
+    "@vueuse/core": "^10.4.1",
+    "element-plus": "^2.4.2",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.4",
+    "vue-i18n": "^9.6.5",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@types/sass": "^1.45.0",
+    "@vitejs/plugin-vue": "^4.4.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.2",
+    "@vue/test-utils": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "sass": "^1.69.5",
+    "unocss": "^0.57.3",
+    "vite": "^5.0.0",
+    "vite-plugin-webfont-dl": "^3.8.1",
+    "vue-tsc": "^1.8.22"
+  }
+}
