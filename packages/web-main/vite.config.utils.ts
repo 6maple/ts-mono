@@ -1,4 +1,5 @@
 import path from 'node:path';
+import fs from 'node:fs';
 import type { ComponentResolver } from 'unplugin-vue-components';
 
 const kebabCase = (value: string) => {
@@ -10,19 +11,23 @@ const kebabCase = (value: string) => {
     return `-${lower}`;
   });
 };
+
 export const createCcComponentResolver = (
   dir = path.join(process.cwd(), 'src/components').replace(/\\+/g, '/'),
 ): ComponentResolver => {
   return {
     type: 'component',
-    resolve: (name: string) => {
+    resolve: async (name: string) => {
       if (!name.startsWith('Cc')) {
         return;
       }
       const namePath = kebabCase(name);
-      return `${dir}/${namePath}/index`;
+      const basePath = `${dir}/${namePath}`;
+      if (fs.existsSync(`${basePath}.vue`)) {
+        return `${basePath}.vue`;
+      } else if (fs.existsSync(basePath)) {
+        return `${basePath}/index`;
+      }
     },
   };
 };
-// name CcFoo
-// import CcFoo from 'src/components/cc-foo';

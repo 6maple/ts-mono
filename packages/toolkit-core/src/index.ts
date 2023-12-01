@@ -1,2 +1,2 @@
 export * from './string';
-export default {};
+export * from './path';

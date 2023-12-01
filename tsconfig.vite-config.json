@@ -4,5 +4,10 @@
     "composite": true,
     "types": ["node", "vitest", "vite-ssg"]
   },
-  "include": ["**/vite.config.*", "**/vitest.config.*", "**/vite.init.*"]
+  "include": [
+    "**/vite.config.*",
+    "**/build-utils.ts",
+    "**/vitest.config.*",
+    "**/vite.init.*"
+  ]
 }

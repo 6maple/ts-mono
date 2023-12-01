@@ -1,16 +1,15 @@
-import { readdirSync } from 'node:fs';
+import fs from 'node:fs/promises';
 import { defineBuildConfig } from 'unbuild';
+import { baseOutDir, sourceEntryList } from './build-utils';
 import type { BuildEntry } from 'unbuild';
 
-const baseOutDir = 'dist';
-const entryList = readdirSync('./src', { withFileTypes: true })
-  .filter((item) => item.isFile() || item.isDirectory())
+export const entryList = sourceEntryList
   .map((item) => {
     const { name } = item;
     if (item.isFile() && name.endsWith('.ts')) {
       return <BuildEntry>{
         input: `src/${name}`,
-        name,
+        name: name.slice(0, -'.ts'.length),
         outDir: `${baseOutDir}`,
       };
     } else if (item.isDirectory()) {
@@ -25,10 +24,20 @@ const entryList = readdirSync('./src', { withFileTypes: true })
   .filter(Boolean) as BuildEntry[];
 
 export default defineBuildConfig({
-  entries: entryList,
   clean: true,
   declaration: true,
   rollup: {
-    emitCJS: true,
+    emitCJS: false,
+  },
+  hooks: {
+    'build:done': async () => {
+      fs.writeFile(
+        `${baseOutDir}/index.js`,
+        'export * from "../src/index.ts";',
+        {
+          encoding: 'utf-8',
+        },
+      );
+    },
   },
 });

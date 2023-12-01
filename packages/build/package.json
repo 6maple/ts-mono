@@ -13,6 +13,7 @@
     "esbuild": "^0.14.47"
   },
   "devDependencies": {
+    "@pnpm/types": "^9.4.0",
     "@esbuild-kit/cjs-loader": "^2.2.1",
     "unbuild": "^0.7.4"
   }

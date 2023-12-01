@@ -32,7 +32,7 @@ module.exports = defineConfig({
   },
   overrides: [
     {
-      files: ['./*.{ts,js}', 'vscode.js'],
+      files: ['./*.{ts,js}', 'vscode.js', './packages/build/**/*.ts'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
       },

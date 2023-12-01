@@ -27,3 +27,8 @@ tmp
 # auto generate
 components.d.ts
 typed-router.d.ts
+
+
+.gradle
+local.properties
+**/app/build
