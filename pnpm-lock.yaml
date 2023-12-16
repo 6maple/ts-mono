@@ -7,9 +7,6 @@ settings:
 overrides:
   rollup: ^4.2.0
 
-overrides:
-  rollup: ^4.2.0
-
 importers:
 
   .:
