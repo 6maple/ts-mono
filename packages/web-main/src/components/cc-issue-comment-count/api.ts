@@ -4,7 +4,7 @@ const owner = '6maple';
 const repo = '6maple.github.io';
 const issueNumber = 1;
 const token =
-  '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';
+  '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';
 
 const octokit = new Octokit({
   auth: token,

@@ -211,6 +211,94 @@ importers:
         specifier: ^1.2.2
         version: 1.2.2
 
+  packages/web-lowcode:
+    dependencies:
+      '@element-plus/icons-vue':
+        specifier: ^2.1.0
+        version: 2.1.0(vue@3.3.8)
+      '@unocss/reset':
+        specifier: ^0.57.3
+        version: 0.57.7
+      '@vueuse/core':
+        specifier: ^10.4.1
+        version: 10.6.1(vue@3.3.8)
+      '@zyi/web-ui':
+        specifier: workspace:*
+        version: link:../web-ui
+      element-plus:
+        specifier: ^2.4.2
+        version: 2.4.2(vue@3.3.8)
+      octokit:
+        specifier: ^3.1.2
+        version: 3.1.2
+      pinia:
+        specifier: ^2.1.7
+        version: 2.1.7(typescript@5.2.2)(vue@3.3.8)
+      vue:
+        specifier: ^3.3.4
+        version: 3.3.8(typescript@5.2.2)
+      vue-i18n:
+        specifier: ^9.6.5
+        version: 9.7.1(vue@3.3.8)
+      vue-router:
+        specifier: ^4.2.5
+        version: 4.2.5(vue@3.3.8)
+    devDependencies:
+      '@intlify/unplugin-vue-i18n':
+        specifier: ^1.5.0
+        version: 1.5.0(rollup@4.5.1)(vue-i18n@9.7.1)
+      '@types/sass':
+        specifier: ^1.45.0
+        version: 1.45.0
+      '@vitejs/plugin-vue':
+        specifier: ^4.4.0
+        version: 4.5.0(vite@5.0.2)(vue@3.3.8)
+      '@vitejs/plugin-vue-jsx':
+        specifier: ^3.0.2
+        version: 3.1.0(vite@5.0.2)(vue@3.3.8)
+      '@vue/test-utils':
+        specifier: ^2.4.1
+        version: 2.4.2(vue@3.3.8)
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
+      https-localhost:
+        specifier: ^4.7.1
+        version: 4.7.1
+      sass:
+        specifier: ^1.69.5
+        version: 1.69.5
+      unocss:
+        specifier: ^0.57.3
+        version: 0.57.7(postcss@8.4.31)(rollup@4.5.1)(vite@5.0.2)
+      unplugin-vue-components:
+        specifier: ^0.25.2
+        version: 0.25.2(rollup@4.5.1)(vue@3.3.8)
+      unplugin-vue-router:
+        specifier: ^0.7.0
+        version: 0.7.0(rollup@4.5.1)(vue-router@4.2.5)(vue@3.3.8)
+      vite:
+        specifier: ^5.0.0
+        version: 5.0.2(@types/node@20.9.5)(sass@1.69.5)
+      vite-plugin-vue-devtools:
+        specifier: 1.0.0-rc.5
+        version: 1.0.0-rc.5(pug@3.0.2)(rollup@4.5.1)(vite@5.0.2)
+      vite-plugin-vue-layouts:
+        specifier: ^0.8.0
+        version: 0.8.0(vite@5.0.2)(vue-router@4.2.5)(vue@3.3.8)
+      vite-plugin-webfont-dl:
+        specifier: ^3.8.1
+        version: 3.9.1(vite@5.0.2)
+      vite-ssg:
+        specifier: ^0.23.5
+        version: 0.23.5(vite@5.0.2)(vue-router@4.2.5)(vue@3.3.8)
+      vite-ssg-sitemap:
+        specifier: ^0.6.0
+        version: 0.6.1
+      vue-tsc:
+        specifier: ^1.8.22
+        version: 1.8.22(typescript@5.2.2)
+
   packages/web-main:
     dependencies:
       '@element-plus/icons-vue':

@@ -32,3 +32,4 @@ typed-router.d.ts
 .gradle
 local.properties
 **/app/build
+**/app/bin
