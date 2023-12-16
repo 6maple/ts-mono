@@ -22,5 +22,14 @@
     "json",
     "jsonc"
   ],
-  "cSpell.words": ["execa", "gdformat", "gdscript", "vueuse"]
+  "cSpell.words": [
+    "execa",
+    "gdformat",
+    "gdscript",
+    "intlify",
+    "unocss",
+    "unplugin",
+    "vueuse",
+    "webfont"
+  ]
 }

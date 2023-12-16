@@ -1,5 +1,5 @@
 import { execa } from 'execa';
-import { formatStr } from '@zyi/toolkit';
+import { formatStr } from '@zyi/toolkit-core';
 import * as vscode from './vscode';
 
 import { getConfigKey, getVscodePluginConfig } from './host-utils/config';

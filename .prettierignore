@@ -5,3 +5,7 @@ pnpm-lock.yaml
 coverage
 play
 !.*
+
+.gradle
+local.properties
+**/app/build

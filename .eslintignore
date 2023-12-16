@@ -5,3 +5,10 @@ pnpm-lock.yaml
 coverage
 play
 !.*
+
+components.d.ts
+typed-router.d.ts
+
+.gradle
+local.properties
+**/app/build

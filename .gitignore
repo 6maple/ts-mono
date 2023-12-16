@@ -12,9 +12,24 @@ node_modules
 dist
 dist-*
 *.vsix
+.vite-ssg-dist
+.vite-ssg-temp
 coverage
 
 # local env files
 *.local
 .eslintcache
 tmp
+
+# log
+*.log
+
+# auto generate
+components.d.ts
+typed-router.d.ts
+
+
+.gradle
+local.properties
+**/app/build
+**/app/bin
