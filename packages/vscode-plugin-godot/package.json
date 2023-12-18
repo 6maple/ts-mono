@@ -1,6 +1,6 @@
 {
   "name": "zyi-godot",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "displayName": "Zyi Godot Toolkit",
   "publisher": "zyi",
@@ -10,7 +10,9 @@
   "scripts": {
     "dev-client": "vite",
     "stub": "unbuild --stub",
-    "build-only": "cross-env IS_BUILD=true unbuild",
+    "build-only": "run-p build-host build-client",
+    "build-host": "cross-env IS_BUILD=true unbuild",
+    "build-client": "rimraf dist-client && vite build",
     "build-toolkit-core": "cd ../toolkit-core && pnpm build",
     "stub-toolkit-core": "cd ../toolkit-core && pnpm stub",
     "build": "run-s build-toolkit-core build-only stub-toolkit-core",
@@ -19,19 +21,22 @@
     "rts": "node --require esbuild-register"
   },
   "devDependencies": {
-    "@vueuse/core": "^10.4.1",
-    "@zyi/toolkit-core": "workspace:*",
-    "execa": "^8.0.1",
-    "vscode-nls": "^5.2.0",
-    "vue": "^3.3.4",
+    "@types/d3": "^7.4.3",
     "@types/vscode": "^1.0.0",
     "@vitejs/plugin-vue": "^4.3.4",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
+    "@vueuse/core": "^10.4.1",
+    "@zyi/toolkit-core": "workspace:*",
     "cross-env": "^7.0.3",
+    "d3": "^7.8.5",
     "esbuild": "^0.14.47",
+    "execa": "^8.0.1",
+    "mermaid": "^10.6.1",
     "typescript": "~5.2.2",
     "vite": "^5.0.0",
+    "vscode-nls": "^5.2.0",
     "vscode-nls-dev": "^4.0.4",
+    "vue": "^3.3.4",
     "yaml-eslint-parser": "^1.2.2"
   },
   "engines": {
@@ -90,15 +95,51 @@
           },
           "markdownDescription": "%ext.config.markdownDescription.formatters%",
           "scope": "window"
+        },
+        "zyi-godot.visualizer": {
+          "type": "object",
+          "default": {
+            "includePatterns": [
+              "./**/*.gd"
+            ],
+            "excludePatterns": [],
+            "ignoreMember": true,
+            "direction": "LR"
+          },
+          "properties": {
+            "includePatterns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "markdownDescription": "%ext.config.markdownDescription.visualizerIncludePatterns%"
+            },
+            "excludePatterns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "markdownDescription": "%ext.config.markdownDescription.visualizerExcludePatterns%"
+            },
+            "ignoreMember": {
+              "type": "boolean",
+              "markdownDescription": "%ext.config.markdownDescription.visualizerIgnoreMember%"
+            },
+            "direction": {
+              "type": "string",
+              "markdownDescription": "%ext.config.markdownDescription.visualizerDirection%"
+            }
+          },
+          "markdownDescription": "%ext.config.markdownDescription.visualizer%",
+          "scope": "window"
         }
       }
-    }
-  },
-  "commands": [
-    {
-      "command": "zyi-godot.forceFormatDocument",
-      "title": "%ext.command.title.forceFormatDocument%",
-      "when": "editorFocus"
-    }
-  ]
+    },
+    "commands": [
+      {
+        "command": "zyi-godot.visualizer.start",
+        "title": "zyi-godot: start visualizer"
+      }
+    ]
+  }
 }

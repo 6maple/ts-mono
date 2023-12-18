@@ -63,7 +63,7 @@ const checkIsValidArray = (value: unknown) => {
 };
 
 const createFormatHandler = (
-  config: VscodePluginConfig['formatters'][0],
+  config: Required<VscodePluginConfig>['formatters'][0],
 ): FormatHandler => {
   const { commands, stdoutAsResult } = config;
   return async (value, file) => {

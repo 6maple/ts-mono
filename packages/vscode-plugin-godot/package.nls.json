@@ -4,5 +4,10 @@
   "ext.config.markdownDescription.formatterStdoutAsResult": "formatter use stdout as result",
   "ext.config.markdownDescription.formatterCommands": "formatter commands",
   "ext.config.markdownDescription.formatters": "formatters",
+  "ext.config.markdownDescription.visualizerIncludePatterns": "visualizer include patterns",
+  "ext.config.markdownDescription.visualizerExcludePatterns": "visualizer exclude patterns",
+  "ext.config.markdownDescription.visualizerIgnoreMember": "visualizer ignore member",
+  "ext.config.markdownDescription.visualizerDirection": "visualizer direction: TB/LR/BT/RL",
+  "ext.config.markdownDescription.visualizer": "visualizer",
   "ext.command.title.forceFormatDocument": "force format document"
 }

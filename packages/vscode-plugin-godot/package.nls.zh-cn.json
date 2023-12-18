@@ -4,5 +4,10 @@
   "ext.config.markdownDescription.formatterStdoutAsResult": "是否使用标注输出作为格式化结果",
   "ext.config.markdownDescription.formatterCommands": "格式化执行的命令",
   "ext.config.markdownDescription.formatters": "格式化配置列表",
+  "ext.config.markdownDescription.visualizerIncludePatterns": "可视化要包含的文件匹配规则",
+  "ext.config.markdownDescription.visualizerExcludePatterns": "可视化要排除的文件匹配规则",
+  "ext.config.markdownDescription.visualizerIgnoreMember": "可视化忽略成员",
+  "ext.config.markdownDescription.visualizerDirection": "可视化方向: TB/LR/BT/RL",
+  "ext.config.markdownDescription.visualizer": "可视化配置",
   "ext.command.title.forceFormatDocument": "强制执行格式化"
 }

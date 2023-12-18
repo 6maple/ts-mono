@@ -4,5 +4,5 @@
     "allowJs": true,
     "types": ["node", "./host-env", "../../typings/node-env"]
   },
-  "include": ["src/host/**/*", "package.json"]
+  "include": ["src/shared/**/*", "src/host/**/*", "package.json"]
 }
