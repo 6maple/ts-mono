@@ -165,6 +165,12 @@ export const recommended = defineConfig({
 
     'no-redeclare': 'off',
     '@typescript-eslint/no-redeclare': 'error',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+      },
+    ],
 
     // best-practice
     'array-callback-return': 'error',
