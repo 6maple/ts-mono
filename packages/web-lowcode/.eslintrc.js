@@ -6,7 +6,6 @@ module.exports = defineConfig({
     'import/resolver': {
       alias: {
         map: [['@', path.join(__dirname, './src')]],
-
         extensions: [
           '.ts',
           '.tsx',
