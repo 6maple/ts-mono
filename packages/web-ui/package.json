@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "stub": "build",
+    "stub": "npm run build",
     "build": "rimraf dist && vite build"
   },
   "dependencies": {
