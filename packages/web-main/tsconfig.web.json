@@ -15,6 +15,7 @@
     "src/**/*",
     "./typed-router.d.ts",
     "src/**/*.vue",
+    "src/component/**/*.vue",
     "src/**/*.json"
   ],
   "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]

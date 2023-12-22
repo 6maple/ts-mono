@@ -1,10 +1,12 @@
+const path = require('node:path');
 const { defineConfig } = require('eslint-define-config');
 
 module.exports = defineConfig({
   settings: {
     'import/resolver': {
       alias: {
-        map: [['@', './src']],
+        map: [['@', path.join(__dirname, './src')]],
+
         extensions: [
           '.ts',
           '.tsx',
