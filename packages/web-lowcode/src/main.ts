@@ -1,5 +1,6 @@
 import '@unocss/reset/tailwind.css';
 import 'uno.css';
+import './styles/global.scss';
 
 import { setupLayouts } from 'virtual:generated-layouts';
 import { ViteSSG } from 'vite-ssg';

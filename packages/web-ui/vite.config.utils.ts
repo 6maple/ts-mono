@@ -32,7 +32,7 @@ export const createLibBuildPlugin = (options: LibBuildPluginOptions) => {
 };
 
 const checkIsVueCSSFileName = (value: string) => {
-  return value.endsWith('.vue.css.js');
+  return value.endsWith('.vue.css.mjs');
 };
 const replaceVueCssChunkImports = (code: string, value: string[]) => {
   if (!value.length) {
@@ -86,7 +86,7 @@ const resolveLibBuildConfigFn = (
           external,
           output: {
             chunkFileNames(chunkInfo) {
-              return `${chunkInfo.name}.js`;
+              return `${chunkInfo.name}.mjs`;
             },
             ...rollupOptions?.output,
             manualChunks(id) {

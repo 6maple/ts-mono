@@ -1,5 +1,6 @@
 export type LayoutAreaType = ValueOf<typeof LAYOUT_AREA_TYPE>;
 export const LAYOUT_AREA_TYPE = {
+  TOP: 'top',
   LEFT: 'left',
   RIGHT: 'right',
   CENTER: 'center',
@@ -8,6 +9,7 @@ export const LAYOUT_AREA_TYPE = {
 export type LayoutAreaPanelType = ValueOf<typeof LAYOUT_AREA_PANEL_TYPE>;
 export const LAYOUT_AREA_PANEL_TYPE = {
   FULL: 'full',
+  CENTER: 'center',
   TOP: 'top',
   Bottom: 'bottom',
 } as const;
@@ -17,6 +19,8 @@ export interface LayoutArea {
   type: LayoutAreaType;
   panelList: LayoutAreaPanel[];
 }
+
+export type TypeToLayoutArea = Partial<Record<LayoutAreaType, LayoutArea[]>>;
 
 export interface LayoutAreaPanel {
   name: string;
@@ -30,46 +34,46 @@ export interface LayoutAreaPanel {
 }
 
 export const createLayoutManager = () => {
-  const areaList: LayoutArea[] = [];
-  const getAreaList = () => {
-    return areaList;
+  const areaRecord: TypeToLayoutArea = {};
+  const getAreaRecord = () => {
+    return areaRecord;
   };
   const addArea = (value: LayoutArea) => {
-    return areaList.push(value);
-  };
-  const getSortedAreaList = (type: LayoutAreaType) => {
-    return resolveSortedAreaList(areaList, type);
+    const { type } = value;
+    let item = areaRecord[type];
+    if (!item) {
+      item = [value];
+      areaRecord[type] = item;
+    } else {
+      item.push(value);
+    }
   };
   return {
-    areaList,
-    getAreaList,
-    getSortedAreaList,
+    areaRecord,
+    getAreaRecord,
     addArea,
     resolveGroupedAreaPanelList,
   };
 };
 
-const resolveSortedAreaList = (
-  areaList: LayoutArea[],
-  type: LayoutAreaType,
-) => {
-  return areaList.filter((item) => item.type === type);
-};
+export type LayoutManager = ReturnType<typeof createLayoutManager>;
+
+export type GroupedAreaPanelList = Record<
+  LayoutAreaPanelType,
+  LayoutAreaPanel[]
+>;
 
 export const resolveGroupedAreaPanelList = (area: LayoutArea) => {
   const { panelList } = area;
-  const groupedPanelList = panelList.reduce(
-    (acc, cur) => {
-      const { type } = cur;
-      const data = acc[type];
-      if (data) {
-        data.push(cur);
-      } else {
-        acc[type] = [cur];
-      }
-      return acc;
-    },
-    {} as Record<LayoutAreaPanelType, LayoutAreaPanel[]>,
-  );
+  const groupedPanelList = panelList.reduce((acc, cur) => {
+    const { type } = cur;
+    const data = acc[type];
+    if (data) {
+      data.push(cur);
+    } else {
+      acc[type] = [cur];
+    }
+    return acc;
+  }, {} as GroupedAreaPanelList);
   return groupedPanelList;
 };

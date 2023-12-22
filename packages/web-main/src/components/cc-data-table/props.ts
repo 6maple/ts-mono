@@ -1,4 +1,4 @@
-import { defineComponentProps } from '@/utils/vue';
+import { defineComponentProps } from '@zyi/web-ui';
 import type { ElTable } from 'element-plus';
 import type { ExtractPropTypes, PropType } from 'vue';
 

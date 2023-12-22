@@ -4,7 +4,11 @@ dist
 pnpm-lock.yaml
 coverage
 play
+**/.vite-ssg-temp/**/*
 !.*
+
+components.d.ts
+typed-router.d.ts
 
 .gradle
 local.properties

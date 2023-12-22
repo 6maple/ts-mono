@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { LcLayout } from '../lc-layout';
+//
 </script>
 <template>
-  <div h-full>
-    <LcLayout />
-  </div>
+  <div class="lc-canvas" h-full flex flex-1 justify-center>lc-canvas</div>
 </template>
 <style lang="scss"></style>

@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';
 import Unocss from 'unocss/vite';
 import WebfontDownload from 'vite-plugin-webfont-dl';
+import createDTSPlugin from 'vite-plugin-dts';
 import { normalizeUnixLikePath } from '@zyi/toolkit-core';
 import { getPackageDependencies } from '@zyi/build';
 import { baseOutDir, sourceEntryList } from './build-utils';
@@ -42,6 +43,11 @@ export default defineConfig({
     // https://github.com/feat-agency/vite-plugin-webfont-dl
     WebfontDownload(),
 
+    createDTSPlugin({
+      root: __dirname,
+      tsconfigPath: path.join(__dirname, './tsconfig.web.json'),
+      insertTypesEntry: true,
+    }),
     createLibBuildPlugin({
       sourceDir,
       libEntry,
