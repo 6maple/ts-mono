@@ -40,7 +40,7 @@ const replaceVueCssChunkImports = (code: string, value: string[]) => {
   }
   const replacer = getImportChunkReplacer(value);
   return replacer(code, (importPath) => {
-    return importPath.replace(/\.css\.js$/, '.css');
+    return importPath.replace(/\.css\.mjs$/, '.css');
   });
 };
 const getImportChunkReplacer = (value: string[]) => {

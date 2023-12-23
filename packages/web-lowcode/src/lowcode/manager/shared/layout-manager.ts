@@ -8,29 +8,44 @@ export const LAYOUT_AREA_TYPE = {
 
 export type LayoutAreaPanelType = ValueOf<typeof LAYOUT_AREA_PANEL_TYPE>;
 export const LAYOUT_AREA_PANEL_TYPE = {
-  FULL: 'full',
-  CENTER: 'center',
   TOP: 'top',
   Bottom: 'bottom',
 } as const;
 
 export interface LayoutArea {
   name: string;
+  /**
+   * top 高度
+   * @example 'auto' | '100px' | '10%'
+   */
+  topHeight?: string;
+  /**
+   * bottom 高度
+   * @example 'auto' | '100px' | '10%'
+   */
+  bottomHeight?: string;
+  /**
+   * 宽度
+   * @example 'auto' | '100px' | '10%'
+   */
+  width?: string;
   type: LayoutAreaType;
   panelList: LayoutAreaPanel[];
 }
 
 export type TypeToLayoutArea = Partial<Record<LayoutAreaType, LayoutArea[]>>;
 
+export type LayoutAreaPanelRenderType = 'mount' | 'update';
+
 export interface LayoutAreaPanel {
   name: string;
   title: string | (() => string);
   type: LayoutAreaPanelType;
   renderElement: (
-    previousValue: HTMLElement | null,
+    previousValue: HTMLElement | undefined | null,
     parent: HTMLElement,
-    first: boolean,
-  ) => HTMLElement;
+    type: LayoutAreaPanelRenderType,
+  ) => HTMLElement | null | undefined;
 }
 
 export const createLayoutManager = () => {

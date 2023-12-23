@@ -11,7 +11,7 @@ const typeToLayoutArea = computed(() => props.areaRecord || {});
 </script>
 <template>
   <div flex flex-col h-full>
-    <div class="lc-layout-top" h-sm>
+    <div class="lc-layout-top" h-12>
       <LcHead :areas="typeToLayoutArea.top" />
     </div>
     <div class="lc-layout-main" flex flex-1>
